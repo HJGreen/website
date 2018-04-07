@@ -1,0 +1,5 @@
+# Redirect domain aliases to primary domain
+https://hgreen.co.uk/* https://www.harry.green/:splat 301!
+http://hgreen.co.uk/* https://www.harry.green/:splat 301!
+https://www.hgreen.co.uk/* https://www.harry.green/:splat 301!
+http://www.hgreen.co.uk/* https://www.harry.green/:splat 301!
