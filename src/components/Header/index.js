@@ -53,6 +53,8 @@ class Header extends Component {
   circleYMin = 50;
   circleYMax = 130;
 
+  lastScroll = 0;
+
   state = {
     circleX: 50,
     circleY: 50,
@@ -70,7 +72,16 @@ class Header extends Component {
   }
 
   update = () => {
-    const p = window.scrollY / window.innerHeight * 2;
+
+    const currentScroll = this.lastScroll + (window.scrollY - this.lastScroll) * 0.2;
+    this.lastScroll = currentScroll;
+
+    const p = currentScroll / window.innerHeight * 2;
+
+    if (p > 1.1) {
+      window.requestAnimationFrame(this.update);
+      return;
+    }
 
     let { circleX, circleY, circleR } = this.state;
     const { circleYMin, circleYMax } = this;
