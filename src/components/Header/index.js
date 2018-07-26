@@ -82,9 +82,9 @@ class Header extends Component {
   yMin = 50;
   yMax = 130;
   radius = 30;
+  x = 50;
 
   state = {
-    x: 50,
     y: 50,
     polyPath: null,
     innerOpacity: 1,
@@ -103,14 +103,14 @@ class Header extends Component {
       return;
     }
 
-    let { x, y } = this.state;
+    let { y } = this.state;
     const { yMin, yMax } = this;
 
     y = yMin + (yMax - yMin) * p;
     let xOffset = this.radius * Math.sin(p * Math.PI);
 
-    let polyAx = x - xOffset;
-    let polyBx = x + xOffset;
+    let polyAx = this.x - xOffset;
+    let polyBx = this.x + xOffset;
 
     let polyAy = y + this.radius * Math.cos(p * Math.PI);
     let polyBy = polyAy;
@@ -118,7 +118,7 @@ class Header extends Component {
     const d = 2 * Math.abs(5 * p - 2.5) + 10;
 
     // Calculate points tangent to circle for SVG curve control points
-    const vx = x - polyAx;
+    const vx = this.x - polyAx;
     const vy = y - polyAy;
     const norm = Math.sqrt(vx * vx + vy * vy);
     let polyAC1x = polyAx + -1 * vy * d / norm;
@@ -154,7 +154,6 @@ class Header extends Component {
     ].join(" ");
 
     this.setState({
-      x,
       y,
       innerOpacity,
       polyPath,
@@ -169,19 +168,14 @@ class Header extends Component {
   }
 
   render() {
-    const { x, y, polyPath, innerOpacity } = this.state;
+    const { y, polyPath, innerOpacity } = this.state;
 
     return (
       <div
         className="head"
         style={{ backgroundColor: "#ecefeb", height: "100vmin" }}
       >
-        <OuterCircle
-          x={x}
-          y={y}
-          radius={this.radius}
-          polyPath={polyPath}
-        >
+        <OuterCircle x={this.x} y={y} radius={this.radius} polyPath={polyPath}>
           <InnerCircle
             y={y}
             opacity={innerOpacity}
