@@ -23,7 +23,7 @@ OuterCircle.propTypes = {
 };
 
 const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
-  <svg className="inner" viewBox="0 0 100 100" y={y - 50} style={{ opacity }}>
+  <svg className="inner" viewBox="0 0 100 100" y={y} style={{ opacity }}>
     <defs>
       <path id="curve" d="M 24 50 A 24 24 0 1 0 76 50" />
     </defs>
@@ -93,13 +93,12 @@ class Header extends Component {
 
   update = () => {
     const { lastScroll } = this.state;
-    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2
+    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2;
 
     let progress = currentScroll / window.innerHeight * 2;
     progress = parseFloat(progress.toFixed(3));
 
     const innerOpacity = 1 - 3 * progress;
-
 
     if (progress > 1.1) {
       window.requestAnimationFrame(this.update);
@@ -162,20 +161,17 @@ class Header extends Component {
     const { y, polyPath, innerOpacity } = this.state;
 
     return (
-      <div
-        className="head"
-        style={{ backgroundColor: "#ecefeb", height: "100vmin" }}
-      >
+      <header style={{ backgroundColor: "#ecefeb", height: "100vmin" }}>
         <OuterCircle x={this.x} y={y} radius={this.radius} polyPath={polyPath}>
           <InnerCircle
-            y={y}
+            y={y - 50}
             opacity={innerOpacity}
             title="HARRY GREEN"
             subtitle="Frontend Web Developer"
             bottomText="NEWCASTLE UPON TYNE"
           />
         </OuterCircle>
-      </div>
+      </header>
     );
   }
 }
