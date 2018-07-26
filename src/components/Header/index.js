@@ -134,23 +134,11 @@ class Header extends Component {
     let polyBaseBx = 100 - polyBaseAx;
 
     const polyPath = [
-      "M",
-      polyBaseAx,
-      100,
-      "Q",
-      polyAC1x,
-      polyAC1y,
-      polyAx,
-      polyAy,
-      "L",
-      polyBx,
-      polyBy,
-      "Q",
-      polyBC1x,
-      polyAC1y,
-      polyBaseBx,
-      100,
-      "Z"
+      `M ${polyBaseAx} 100`,
+      `Q ${polyAC1x} ${polyAC1y} ${polyAx} ${polyAy}`,
+      `L ${polyBx} ${polyBy}`,
+      `Q ${polyBC1x} ${polyAC1y} ${polyBaseBx} 100`,
+      `Z`
     ].join(" ");
 
     this.setState({
