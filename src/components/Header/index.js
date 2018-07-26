@@ -1,7 +1,29 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-const inner = ({ ref }) => (
-  <svg ref={ref} className="inner" viewBox="0 0 100 100">
+const OuterCircle = ({ children, x, y, radius, polyPath }) => (
+  <svg
+    className="intro"
+    preserveAspectRatio="xMidYMid"
+    viewBox="0 0 100 100"
+    style={{ width: "100%", height: "100%" }}
+  >
+    <circle className="circle" fill="#fff" cx={x} cy={y} r={radius} />
+    <path className="path" fill="#fff" fillRule="evenodd" d={polyPath} />
+    {children}
+  </svg>
+);
+
+OuterCircle.propTypes = {
+  children: PropTypes.node,
+  x: PropTypes.number,
+  y: PropTypes.number,
+  radius: PropTypes.number,
+  polyPath: PropTypes.string
+};
+
+const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
+  <svg className="inner" viewBox="0 0 100 100" y={y - 50} style={{ opacity }}>
     <defs>
       <path id="curve" d="M 24 50 A 24 24 0 1 0 76 50" />
     </defs>
@@ -22,7 +44,7 @@ const inner = ({ ref }) => (
       textAnchor="middle"
       fontSize="6"
     >
-      HARRY GREEN
+      {title}
     </text>
     <text
       className="text role"
@@ -32,9 +54,8 @@ const inner = ({ ref }) => (
       textAnchor="middle"
       fontSize="3"
     >
-      Frontend Web Developer
+      {subtitle}
     </text>
-    {/* {bridge()} */}
     <text
       className="location"
       fontSize="2.5"
@@ -43,63 +64,62 @@ const inner = ({ ref }) => (
       style={{ fill: "#676D65", textTransform: "uppercase" }}
     >
       <textPath href="#curve" startOffset="50%">
-        Newcastle upon Tyne
+        {bottomText}
       </textPath>
     </text>
   </svg>
 );
 
-class Header extends Component {
-  circleYMin = 50;
-  circleYMax = 130;
+InnerCircle.propTypes = {
+  y: PropTypes.number,
+  opacity: PropTypes.number,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  bottomText: PropTypes.string
+};
 
-  lastScroll = 0;
+class Header extends Component {
+  yMin = 50;
+  yMax = 130;
+  radius = 30;
 
   state = {
-    circleX: 50,
-    circleY: 50,
-    circleR: 30,
-    p: 0,
+    x: 50,
+    y: 50,
     polyPath: null,
-    innerOpacity: 1
+    innerOpacity: 1,
+    lastScroll: 0
   };
 
-  constructor(props) {
-    super(props);
-    this.outerCircle = React.createRef();
-    this.innerCircle = React.createRef();
-    this.blobPath = React.createRef();
-  }
-
   update = () => {
-
-    const currentScroll = this.lastScroll + (window.scrollY - this.lastScroll) * 0.2;
-    this.lastScroll = currentScroll;
+    const { lastScroll } = this.state;
+    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2;
 
     const p = currentScroll / window.innerHeight * 2;
+    const innerOpacity = 1 - 3 * p;
 
     if (p > 1.1) {
       window.requestAnimationFrame(this.update);
       return;
     }
 
-    let { circleX, circleY, circleR } = this.state;
-    const { circleYMin, circleYMax } = this;
+    let { x, y } = this.state;
+    const { yMin, yMax } = this;
 
-    circleY = circleYMin + (circleYMax - circleYMin) * p;
-    let xOffset = circleR * Math.sin(p * Math.PI);
+    y = yMin + (yMax - yMin) * p;
+    let xOffset = this.radius * Math.sin(p * Math.PI);
 
-    let polyAx = circleX - xOffset;
-    let polyBx = circleX + xOffset;
+    let polyAx = x - xOffset;
+    let polyBx = x + xOffset;
 
-    let polyAy = circleY + circleR * Math.cos(p * Math.PI);
+    let polyAy = y + this.radius * Math.cos(p * Math.PI);
     let polyBy = polyAy;
 
     const d = 2 * Math.abs(5 * p - 2.5) + 10;
 
     // Calculate points tangent to circle for SVG curve control points
-    const vx = circleX - polyAx;
-    const vy = circleY - polyAy;
+    const vx = x - polyAx;
+    const vy = y - polyAy;
     const norm = Math.sqrt(vx * vx + vy * vy);
     let polyAC1x = polyAx + -1 * vy * d / norm;
     let polyAC1y = polyAy + vx * d / norm;
@@ -133,11 +153,13 @@ class Header extends Component {
       "Z"
     ].join(" ");
 
-    this.outerCircle.current.setAttribute("cx", circleX);
-    this.outerCircle.current.setAttribute("cy", circleY);
-    this.innerCircle.current.setAttribute("y", circleY - 50);
-    this.innerCircle.current.style.opacity = 1 - 3 * p;
-    this.blobPath.current.setAttribute("d", polyPath);
+    this.setState({
+      x,
+      y,
+      innerOpacity,
+      polyPath,
+      lastScroll: currentScroll
+    });
 
     window.requestAnimationFrame(this.update);
   };
@@ -147,37 +169,27 @@ class Header extends Component {
   }
 
   render() {
-    const { circleX, circleY, circleR, polyPath, innerOpacity } = this.state;
-    const ref = this.innerCircle;
+    const { x, y, polyPath, innerOpacity } = this.state;
+
     return (
       <div
         className="head"
         style={{ backgroundColor: "#ecefeb", height: "100vmin" }}
       >
-        <svg
-          className="intro"
-          preserveAspectRatio="xMidYMid"
-          viewBox="0 0 100 100"
-          style={{ width: "100%", height: "100%" }}
+        <OuterCircle
+          x={x}
+          y={y}
+          radius={this.radius}
+          polyPath={polyPath}
         >
-          <circle
-            className="circle"
-            fill="#fff"
-            cx={circleX}
-            cy={circleY}
-            r={circleR}
-            ref={this.outerCircle}
+          <InnerCircle
+            y={y}
+            opacity={innerOpacity}
+            title="HARRY GREEN"
+            subtitle="Frontend Web Developer"
+            bottomText="NEWCASTLE UPON TYNE"
           />
-          <path
-            className="path"
-            ref
-            fill="#fff"
-            fillRule="evenodd"
-            d={polyPath}
-            ref={this.blobPath}
-          />
-          {inner({ ref, circleX, circleY, innerOpacity })}
-        </svg>
+        </OuterCircle>
       </div>
     );
   }
