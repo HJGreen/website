@@ -93,32 +93,35 @@ class Header extends Component {
 
   update = () => {
     const { lastScroll } = this.state;
-    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2;
+    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2
 
-    const p = currentScroll / window.innerHeight * 2;
-    const innerOpacity = 1 - 3 * p;
+    let progress = currentScroll / window.innerHeight * 2;
+    progress = parseFloat(progress.toFixed(3));
 
-    if (p > 1.1) {
+    const innerOpacity = 1 - 3 * progress;
+
+
+    if (progress > 1.1) {
       window.requestAnimationFrame(this.update);
       return;
     }
 
     let { y } = this.state;
-    const { yMin, yMax } = this;
+    const { yMin, yMax, x, radius } = this;
 
-    y = yMin + (yMax - yMin) * p;
-    let xOffset = this.radius * Math.sin(p * Math.PI);
+    y = yMin + (yMax - yMin) * progress;
+    let xOffset = radius * Math.sin(progress * Math.PI);
 
-    let polyAx = this.x - xOffset;
-    let polyBx = this.x + xOffset;
+    let polyAx = x - xOffset;
+    let polyBx = x + xOffset;
 
-    let polyAy = y + this.radius * Math.cos(p * Math.PI);
+    let polyAy = y + radius * Math.cos(progress * Math.PI);
     let polyBy = polyAy;
 
-    const d = 2 * Math.abs(5 * p - 2.5) + 10;
+    const d = 2 * Math.abs(5 * progress - 2.5) + 10;
 
     // Calculate points tangent to circle for SVG curve control points
-    const vx = this.x - polyAx;
+    const vx = x - polyAx;
     const vy = y - polyAy;
     const norm = Math.sqrt(vx * vx + vy * vy);
     let polyAC1x = polyAx + -1 * vy * d / norm;
@@ -130,7 +133,7 @@ class Header extends Component {
 
     let polyBC1x = 100 - polyAC1x;
 
-    let polyBaseAx = polyAx - 50 * p;
+    let polyBaseAx = polyAx - 50 * progress;
     let polyBaseBx = 100 - polyBaseAx;
 
     const polyPath = [
