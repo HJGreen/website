@@ -78,7 +78,7 @@ InnerCircle.propTypes = {
   bottomText: PropTypes.string
 };
 
-class Header extends Component {
+class Blob extends Component {
   yMin = 50;
   yMax = 130;
   radius = 30;
@@ -87,23 +87,17 @@ class Header extends Component {
   state = {
     y: 50,
     polyPath: null,
-    innerOpacity: 1,
-    lastScroll: 0
+    innerOpacity: 1
   };
 
-  update = () => {
-    const { lastScroll } = this.state;
-    const currentScroll = lastScroll + (window.scrollY - lastScroll) * 0.2;
+  constructor(props) {
+    super(props);
+  }
 
-    let progress = currentScroll / window.innerHeight * 2;
-    progress = parseFloat(progress.toFixed(3));
+  update = () => {
+    const { progress } = this.props;
 
     const innerOpacity = 1 - 3 * progress;
-
-    if (progress > 1.1) {
-      window.requestAnimationFrame(this.update);
-      return;
-    }
 
     let { y } = this.state;
     const { yMin, yMax, x, radius } = this;
@@ -146,8 +140,7 @@ class Header extends Component {
     this.setState({
       y,
       innerOpacity,
-      polyPath,
-      lastScroll: currentScroll
+      polyPath
     });
 
     window.requestAnimationFrame(this.update);
@@ -161,19 +154,21 @@ class Header extends Component {
     const { y, polyPath, innerOpacity } = this.state;
 
     return (
-      <header style={{ backgroundColor: "#ecefeb", height: "100vmin" }}>
-        <OuterCircle x={this.x} y={y} radius={this.radius} polyPath={polyPath}>
-          <InnerCircle
-            y={y - 50}
-            opacity={innerOpacity}
-            title="HARRY GREEN"
-            subtitle="Frontend Web Developer"
-            bottomText="NEWCASTLE UPON TYNE"
-          />
-        </OuterCircle>
-      </header>
+      <OuterCircle x={this.x} y={y} radius={this.radius} polyPath={polyPath}>
+        <InnerCircle
+          y={y - 50}
+          opacity={innerOpacity}
+          title="HARRY GREEN"
+          subtitle="Frontend Web Developer"
+          bottomText="NEWCASTLE UPON TYNE"
+        />
+      </OuterCircle>
     );
   }
 }
 
-export default Header;
+Blob.propTypes = {
+  progress: PropTypes.number
+};
+
+export default Blob;

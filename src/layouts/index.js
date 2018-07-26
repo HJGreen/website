@@ -25,5 +25,4 @@ const TemplateWrapper = () => (
   </div>
 );
 
-
 export default TemplateWrapper;
