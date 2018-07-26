@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const OuterCircle = ({ children, x, y, radius, polyPath }) => (
   <svg
     className="intro"
-    preserveAspectRatio="xMidYMid"
+    preserveAspectRatio="xMidYMax"
     viewBox="0 0 100 100"
     style={{ width: "100%", height: "100%" }}
   >
