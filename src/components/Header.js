@@ -32,7 +32,7 @@ class Header extends Component {
   render() {
     const { progress } = this.state;
     return (
-      <header style={{ backgroundColor: "#ecefeb", height: "100vmin" }}>
+      <header style={{ backgroundColor: "#ebedef", height: "100vmin" }}>
         <Blob progress={progress} />
       </header>
     );

@@ -29,7 +29,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
     </defs>
     <circle
       className="circle-inner"
-      stroke="#ecefeb"
+      stroke="#ebedef"
       fill="#fff"
       strokeWidth="0.2"
       cx="50"
