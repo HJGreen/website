@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito:400");
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600");
 
 html {
   font-family: sans-serif;
@@ -723,4 +723,17 @@ text {
 
 .role {
   letter-spacing: 0.025em;
+}
+
+.c-link-external {
+  padding: 0 0.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #3288B3;
+
+}
+
+.c-link-external:hover,
+.c-link-external:focus {
+  text-decoration: underline;
 }

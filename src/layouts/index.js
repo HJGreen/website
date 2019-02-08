@@ -2,6 +2,8 @@ import React from "react";
 import Helmet from "react-helmet";
 
 import Header from "../components/Header";
+import Bio from "../components/Bio";
+
 import "./../layouts/index.css";
 
 const TemplateWrapper = () => (
@@ -21,7 +23,7 @@ const TemplateWrapper = () => (
       ]}
     />
     <Header />
-    <div style={{ height: "100vh" }} />
+    <Bio />
   </div>
 );
 
