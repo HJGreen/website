@@ -7,16 +7,16 @@ import "./../layouts/index.css";
 const TemplateWrapper = () => (
   <div>
     <Helmet
-      title="Harry Green - Frontend Web Developer"
+      title="Harry Green - Full Stack Web Developer"
       meta={[
         {
           name: "description",
-          content:
-            "Harry Green is a web developer based in Newcastle upon Tyne, specialising in frontend development."
+          content: "Harry Green - Full stack web developer."
         },
         {
           name: "keywords",
-          content: "web developer, frontend, website, newcastle upon tyne"
+          content:
+            "web developer, full stack, php, javascript, react, front end, website"
         }
       ]}
     />

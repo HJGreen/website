@@ -28,7 +28,7 @@ class Header extends Component {
   componentDidMount() {
     window.requestAnimationFrame(this.update);
   }
-  
+
   render() {
     const { progress } = this.state;
     return (
