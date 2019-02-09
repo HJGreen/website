@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const LinkExternal = ({ children, href }) => (
   <a className="c-link-external" href={href}>
@@ -6,8 +7,8 @@ const LinkExternal = ({ children, href }) => (
   </a>
 );
 LinkExternal.propTypes = {
-  children: React.Node,
-  href: "string"
+  children: PropTypes.node,
+  href: PropTypes.string
 };
 
 const Bio = () => (
