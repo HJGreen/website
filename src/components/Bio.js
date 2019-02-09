@@ -21,7 +21,7 @@ const Bio = () => (
     }}
   >
     <article style={{ textAlign: "center" }}>
-      <h1>HARRY GREEN</h1>
+      <h1 className="c-bio-header">Harry Green</h1>
       <p>
         <LinkExternal href="https://github.com/HJGreen">GitHub</LinkExternal>
         <LinkExternal href="https://codepen.io/HGreen7">CodePen</LinkExternal>

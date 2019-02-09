@@ -718,7 +718,7 @@ pre tt:after {
 }
 
 text {
-  fill: #676d65;
+  fill: #222B2F;
 }
 
 .role {
@@ -729,11 +729,16 @@ text {
   padding: 0 0.25rem;
   text-decoration: none;
   font-weight: 600;
-  color: #3288B3;
-
+  color: #247ca8;
 }
 
 .c-link-external:hover,
 .c-link-external:focus {
   text-decoration: underline;
+}
+
+.c-bio-header {
+  color: #222B2F;
+  text-transform: uppercase;
+  font-size: 2rem;
 }

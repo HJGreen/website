@@ -61,7 +61,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
       fontSize="2.5"
       letterSpacing="0.25"
       textAnchor="middle"
-      style={{ fill: "#676D65", textTransform: "uppercase" }}
+      style={{ textTransform: "uppercase" }}
     >
       <textPath href="#curve" startOffset="50%">
         {bottomText}

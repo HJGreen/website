@@ -21,7 +21,11 @@ const TemplateWrapper = () => (
             "web developer, full stack, php, javascript, react, front end, website"
         }
       ]}
-    />
+    >
+      <html lang="en-GB" />
+      <meta name="theme-color" content="#ebedef" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Helmet>
     <Header />
     <Bio />
   </div>
