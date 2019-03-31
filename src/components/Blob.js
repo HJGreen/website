@@ -49,10 +49,10 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
     <text
       className="text role"
       x="50"
-      y="47"
+      y="48"
       width="100"
       textAnchor="middle"
-      fontSize="3.2"
+      fontSize="4"
     >
       {subtitle}
     </text>
@@ -159,7 +159,7 @@ class Blob extends Component {
           y={y - 50}
           opacity={innerOpacity}
           title="HARRY GREEN"
-          subtitle="Full Stack Web Developer"
+          subtitle="Full Stack Developer"
           bottomText="WELLINGTON, NEW ZEALAND"
         />
       </OuterCircle>
