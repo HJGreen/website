@@ -17,7 +17,8 @@ const Bio = () => (
       height: "100vh",
       display: "flex",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      backgroundColor: "#1a202c"
     }}
   >
     <article style={{ textAlign: "center" }}>

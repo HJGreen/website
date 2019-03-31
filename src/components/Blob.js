@@ -8,8 +8,8 @@ const OuterCircle = ({ children, x, y, radius, polyPath }) => (
     viewBox="0 0 100 100"
     style={{ width: "100%", height: "100%" }}
   >
-    <circle className="circle" fill="#fff" cx={x} cy={y} r={radius} />
-    <path className="path" fill="#fff" fillRule="evenodd" d={polyPath} />
+    <circle className="circle" fill="#1a202c" cx={x} cy={y} r={radius} />
+    <path className="path" fill="#1a202c" fillRule="evenodd" d={polyPath} />
     {children}
   </svg>
 );
@@ -29,9 +29,9 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
     </defs>
     <circle
       className="circle-inner"
-      stroke="#ebedef"
-      fill="#fff"
-      strokeWidth="0.2"
+      stroke="#944cdc"
+      fill="#1a202c"
+      strokeWidth="0.4"
       cx="50"
       cy="50"
       r="28"
@@ -49,17 +49,17 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
     <text
       className="text role"
       x="50"
-      y="47"
+      y="48"
       width="100"
       textAnchor="middle"
-      fontSize="3.2"
+      fontSize="4"
     >
       {subtitle}
     </text>
     <text
       className="location"
       fontSize="2.5"
-      letterSpacing="0.25"
+      letterSpacing="0.4"
       textAnchor="middle"
       style={{ textTransform: "uppercase" }}
     >
@@ -159,7 +159,7 @@ class Blob extends Component {
           y={y - 50}
           opacity={innerOpacity}
           title="HARRY GREEN"
-          subtitle="Full Stack Web Developer"
+          subtitle="Full Stack Developer"
           bottomText="WELLINGTON, NEW ZEALAND"
         />
       </OuterCircle>
