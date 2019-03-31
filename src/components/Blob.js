@@ -160,7 +160,7 @@ class Blob extends Component {
           opacity={innerOpacity}
           title="HARRY GREEN"
           subtitle="Full Stack Web Developer"
-          bottomText="NEW ZEALAND"
+          bottomText="WELLINGTON, NEW ZEALAND"
         />
       </OuterCircle>
     );
