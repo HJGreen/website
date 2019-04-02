@@ -6,9 +6,10 @@ const OuterCircle = ({ children, x, y, radius, polyPath }) => (
     className="intro"
     preserveAspectRatio="xMidYMax"
     viewBox="0 0 100 100"
+    fill="transparent"
     style={{ width: "100%", height: "100%" }}
   >
-    <circle className="circle" fill="#1a202c" cx={x} cy={y} r={radius} />
+    <circle className="circle" stroke="#1a202c" cx={x} cy={y} r={radius - 0.75}  strokeWidth="1.5"/>
     <path className="path" fill="#1a202c" fillRule="evenodd" d={polyPath} />
     {children}
   </svg>
@@ -22,20 +23,19 @@ OuterCircle.propTypes = {
   polyPath: PropTypes.string
 };
 
-const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
-  <svg className="inner" viewBox="0 0 100 100" y={y} style={{ opacity }}>
+const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
+  <svg className="inner" viewBox="0 0 100 100" y={y}>
     <defs>
       <path id="curve" d="M 24 50 A 24 24 0 1 0 76 50" />
     </defs>
     <circle
       className="circle-inner"
-      stroke="#944cdc"
       fill="#1a202c"
-      strokeWidth="0.4"
       cx="50"
       cy="50"
-      r="28"
+      r={Math.min(28 + 5 * progress, 28.5)}
     />
+    <g  style={{ opacity }}>
     <text
       className="text name"
       x="50"
@@ -67,6 +67,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText }) => (
         {bottomText}
       </textPath>
     </text>
+    </g>
   </svg>
 );
 
@@ -75,7 +76,8 @@ InnerCircle.propTypes = {
   opacity: PropTypes.number,
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  bottomText: PropTypes.string
+  bottomText: PropTypes.string,
+  progress: PropTypes.number,
 };
 
 class Blob extends Component {
@@ -161,6 +163,7 @@ class Blob extends Component {
           title="HARRY GREEN"
           subtitle="Full Stack Developer"
           bottomText="WELLINGTON, NEW ZEALAND"
+          progress={this.props.progress}
         />
       </OuterCircle>
     );
