@@ -1,13 +1,12 @@
 import React from "react";
 import Helmet from "react-helmet";
+import PropTypes from "prop-types";
 
-import Header from "../components/Header";
-import Bio from "../components/Bio";
 
-import "./../layouts/index.css";
+import "../index.css";
 
-const TemplateWrapper = () => (
-  <div>
+const Layout = ({children}) => (
+  <main>
     <Helmet
       title="Harry Green - Full Stack Developer"
       meta={[
@@ -26,9 +25,15 @@ const TemplateWrapper = () => (
     >
       <html lang="en-GB" />
     </Helmet>
-    <Header />
-    <Bio />
-  </div>
+
+    {children}
+  </main>
 );
 
-export default TemplateWrapper;
+
+Layout.propTypes ={
+  children: PropTypes.node
+  
+}
+
+export default Layout;
