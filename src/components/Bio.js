@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 const LinkExternal = ({ children, href }) => (
   <a className="c-link-external" href={href}>
     {children}
   </a>
-);
+)
 LinkExternal.propTypes = {
   children: PropTypes.node,
-  href: PropTypes.string
-};
+  href: PropTypes.string,
+}
 
 const Bio = () => (
   <section
@@ -18,7 +18,7 @@ const Bio = () => (
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "#1a202c"
+      backgroundColor: "#1a202c",
     }}
   >
     <article style={{ textAlign: "center" }}>
@@ -32,6 +32,6 @@ const Bio = () => (
       </p>
     </article>
   </section>
-);
+)
 
-export default Bio;
+export default Bio
