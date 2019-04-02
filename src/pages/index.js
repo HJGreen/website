@@ -1,14 +1,13 @@
-import React from "react";
-import Layout from '../components/Layout'
-import Header from "../components/Header";
-import Bio from "../components/Bio";
-
+import React from "react"
+import Layout from "../components/Layout"
+import Header from "../components/Header"
+import Bio from "../components/Bio"
 
 const IndexPage = () => (
-<Layout>   
+  <Layout>
     <Header />
     <Bio />
-</Layout>   
-);
+  </Layout>
+)
 
-export default IndexPage;
+export default IndexPage
