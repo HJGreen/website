@@ -13,7 +13,7 @@ class Header extends Component {
     currentScroll = parseFloat(currentScroll.toFixed(3))
 
     let progress = (currentScroll / window.innerHeight) * 2
-    progress = parseFloat(progress.toFixed(3))
+    progress = Math.min(parseFloat(progress.toFixed(3)), 1.0)
 
     if (progress < 1.1) {
       this.setState({
