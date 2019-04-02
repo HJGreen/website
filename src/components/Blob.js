@@ -33,7 +33,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
       fill="#1a202c"
       cx="50"
       cy="50"
-      r={Math.min(28 + 5 * progress, 28.5)}
+      r={Math.min(28 + 5 * progress, 30)}
     />
     <g  style={{ opacity }}>
     <text
