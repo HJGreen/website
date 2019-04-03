@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const OuterCircle = ({ children, x, y, radius, polyPath }) => (
   <svg
@@ -7,7 +7,7 @@ const OuterCircle = ({ children, x, y, radius, polyPath }) => (
     preserveAspectRatio="xMidYMax"
     viewBox="0 0 100 100"
     fill="transparent"
-    style={{ width: "100%", height: "100%" }}
+    style={{ width: '100%', height: '100%' }}
   >
     <circle
       className="circle"
@@ -20,7 +20,7 @@ const OuterCircle = ({ children, x, y, radius, polyPath }) => (
     <path className="path" fillRule="evenodd" d={polyPath} fill="#1a202c" />
     {children}
   </svg>
-)
+);
 
 OuterCircle.propTypes = {
   children: PropTypes.node,
@@ -28,7 +28,7 @@ OuterCircle.propTypes = {
   y: PropTypes.number,
   radius: PropTypes.number,
   polyPath: PropTypes.string,
-}
+};
 
 const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
   <svg className="inner" viewBox="0 0 100 100" y={y}>
@@ -75,7 +75,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
       </text>
     </g>
   </svg>
-)
+);
 
 InnerCircle.propTypes = {
   y: PropTypes.number,
@@ -84,58 +84,58 @@ InnerCircle.propTypes = {
   subtitle: PropTypes.string,
   bottomText: PropTypes.string,
   progress: PropTypes.number,
-}
+};
 
 class Blob extends Component {
-  yMin = 50
-  yMax = 130
-  radius = 30
-  x = 50
+  yMin = 50;
+  yMax = 130;
+  radius = 30;
+  x = 50;
 
   state = {
     y: 50,
     polyPath: null,
     innerOpacity: 1,
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   update = () => {
-    const { progress } = this.props
+    const { progress } = this.props;
 
-    const innerOpacity = 1 - 3 * progress
+    const innerOpacity = 1 - 3 * progress;
 
-    let { y } = this.state
-    const { yMin, yMax, x, radius } = this
+    let { y } = this.state;
+    const { yMin, yMax, x, radius } = this;
 
-    y = yMin + (yMax - yMin) * progress
-    let xOffset = radius * Math.sin(progress * Math.PI)
+    y = yMin + (yMax - yMin) * progress;
+    let xOffset = radius * Math.sin(progress * Math.PI);
 
-    let polyAx = x - xOffset
-    let polyBx = x + xOffset
+    let polyAx = x - xOffset;
+    let polyBx = x + xOffset;
 
-    let polyAy = y + radius * Math.cos(progress * Math.PI)
-    let polyBy = polyAy
+    let polyAy = y + radius * Math.cos(progress * Math.PI);
+    let polyBy = polyAy;
 
-    const d = 2 * Math.abs(5 * progress - 2.5) + 10
+    const d = 2 * Math.abs(5 * progress - 2.5) + 10;
 
     // Calculate points tangent to circle for SVG curve control points
-    const vx = x - polyAx
-    const vy = y - polyAy
-    const norm = Math.sqrt(vx * vx + vy * vy)
-    let polyAC1x = polyAx + (-1 * vy * d) / norm
-    let polyAC1y = polyAy + (vx * d) / norm
+    const vx = x - polyAx;
+    const vy = y - polyAy;
+    const norm = Math.sqrt(vx * vx + vy * vy);
+    let polyAC1x = polyAx + (-1 * vy * d) / norm;
+    let polyAC1y = polyAy + (vx * d) / norm;
 
     if (polyAC1x > 50) {
-      polyAC1x = 50
+      polyAC1x = 50;
     }
 
-    let polyBC1x = 100 - polyAC1x
+    let polyBC1x = 100 - polyAC1x;
 
-    let polyBaseAx = polyAx - 50 * progress
-    let polyBaseBx = 100 - polyBaseAx
+    let polyBaseAx = polyAx - 50 * progress;
+    let polyBaseBx = 100 - polyBaseAx;
 
     const polyPath = [
       `M ${polyBaseAx} 100`,
@@ -143,23 +143,23 @@ class Blob extends Component {
       `L ${polyBx} ${polyBy}`,
       `Q ${polyBC1x} ${polyAC1y} ${polyBaseBx} 100`,
       `Z`,
-    ].join(" ")
+    ].join(' ');
 
     this.setState({
       y,
       innerOpacity,
       polyPath,
-    })
+    });
 
-    window.requestAnimationFrame(this.update)
-  }
+    window.requestAnimationFrame(this.update);
+  };
 
   componentDidMount() {
-    window.requestAnimationFrame(this.update)
+    window.requestAnimationFrame(this.update);
   }
 
   render() {
-    const { y, polyPath, innerOpacity } = this.state
+    const { y, polyPath, innerOpacity } = this.state;
 
     return (
       <OuterCircle x={this.x} y={y} radius={this.radius} polyPath={polyPath}>
@@ -172,12 +172,12 @@ class Blob extends Component {
           progress={this.props.progress}
         />
       </OuterCircle>
-    )
+    );
   }
 }
 
 Blob.propTypes = {
   progress: PropTypes.number,
-}
+};
 
-export default Blob
+export default Blob;

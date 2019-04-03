@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const LinkExternal = ({ children, href }) => (
   <a
@@ -8,12 +8,12 @@ const LinkExternal = ({ children, href }) => (
   >
     {children}
   </a>
-)
+);
 
 LinkExternal.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
-}
+};
 
 const Bio = () => (
   <section className="bg-gray-900 h-screen flex justify-center items-center">
@@ -28,6 +28,6 @@ const Bio = () => (
       </p>
     </article>
   </section>
-)
+);
 
-export default Bio
+export default Bio;
