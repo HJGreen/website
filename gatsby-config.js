@@ -14,7 +14,8 @@ module.exports = {
         theme_color: `#1a202c`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/icon.svg`, // This path is relative to the root of the site.
         include_favicon: true, // Include favicon
       },
     },
