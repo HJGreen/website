@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../index.css';
 
 const Layout = ({ children }) => (
-  <main>
+  <main className="font-sans">
     <Helmet
       title="Harry Green - Full Stack Developer"
       meta={[
