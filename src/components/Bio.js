@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const LinkExternal = ({ children, href }) => (
   <a
-    className="text-purple-400 px-1 text-2xl font-semibold no-underline hover:underline"
+    className="text-purple-400 px-1 text-xl font-semibold no-underline hover:underline"
     href={href}
   >
     {children}
