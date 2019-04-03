@@ -17,7 +17,7 @@ const OuterCircle = ({ children, x, y, radius, polyPath }) => (
       r={radius - 0.75}
       strokeWidth="1.5"
     />
-    <path className="path" fill="#1a202c" fillRule="evenodd" d={polyPath} />
+    <path className="path" fillRule="evenodd" d={polyPath} fill="#1a202c" />
     {children}
   </svg>
 )
@@ -42,9 +42,9 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
       cy="50"
       r={Math.min(28 + 5 * progress, 30)}
     />
-    <g style={{ opacity }}>
+    <g style={{ opacity }} className="text-white">
       <text
-        className="text name"
+        className="fill-current uppercase"
         x="50"
         y="42"
         width="100"
@@ -54,7 +54,7 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
         {title}
       </text>
       <text
-        className="text role"
+        className="fill-current tracking-wide"
         x="50"
         y="48"
         width="100"
@@ -64,11 +64,10 @@ const InnerCircle = ({ y, opacity, title, subtitle, bottomText, progress }) => (
         {subtitle}
       </text>
       <text
-        className="location"
+        className="fill-current uppercase"
         fontSize="2.5"
         letterSpacing="0.4"
         textAnchor="middle"
-        style={{ textTransform: "uppercase" }}
       >
         <textPath href="#curve" startOffset="50%">
           {bottomText}
@@ -167,9 +166,9 @@ class Blob extends Component {
         <InnerCircle
           y={y - 50}
           opacity={innerOpacity}
-          title="HARRY GREEN"
+          title="Harry Green"
           subtitle="Full Stack Developer"
-          bottomText="WELLINGTON, NEW ZEALAND"
+          bottomText="Wellington, New Zealand"
           progress={this.props.progress}
         />
       </OuterCircle>

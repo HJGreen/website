@@ -2,27 +2,23 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const LinkExternal = ({ children, href }) => (
-  <a className="c-link-external" href={href}>
+  <a
+    className="text-purple-400 px-1 text-2xl font-semibold no-underline hover:underline"
+    href={href}
+  >
     {children}
   </a>
 )
+
 LinkExternal.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
 }
 
 const Bio = () => (
-  <section
-    style={{
-      height: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#1a202c",
-    }}
-  >
-    <article style={{ textAlign: "center" }}>
-      <h1 className="c-bio-header">Harry Green</h1>
+  <section className="bg-gray-900 h-screen flex justify-center items-center">
+    <article className="text-center">
+      <h1 className="uppercase text-white text-4xl mb-4">Harry Green</h1>
       <p>
         <LinkExternal href="https://github.com/HJGreen">GitHub</LinkExternal>
         <LinkExternal href="https://codepen.io/HGreen7">CodePen</LinkExternal>

@@ -33,10 +33,10 @@ class Header extends Component {
     const { progress } = this.state
     return (
       <header
+        className="h-screen-min"
         style={{
           background:
             "linear-gradient(20deg, hsl(5, 67%, 58%), transparent), linear-gradient(60deg, hsl(270, 67%, 58%), hsla(290, 67%, 58%, 1))",
-          height: "100vmin",
         }}
       >
         <Blob progress={progress} />
