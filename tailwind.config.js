@@ -301,7 +301,6 @@ module.exports = {
       auto: 'auto',
     },
     container: {},
-    svgFill: theme => theme('colors'),
   },
   variants: {
     appearance: ['responsive'],

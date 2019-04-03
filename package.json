@@ -6,7 +6,9 @@
   "dependencies": {
     "gatsby": "^2.3.4",
     "gatsby-link": "^2.0",
+    "gatsby-plugin-manifest": "^2.0.26",
     "gatsby-plugin-netlify": "^2.0",
+    "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.11",
     "graphql": "^14.2.1",
