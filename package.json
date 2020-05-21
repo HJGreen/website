@@ -1,26 +1,25 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "harry-green",
+  "description": "My personal website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Harry Green <harry@hgreen.co.uk>",
   "dependencies": {
-    "gatsby": "^2.3.4",
-    "gatsby-link": "^2.0",
+    "gatsby": "^2.22.4",
+    "gatsby-link": "^2.4.3",
     "gatsby-plugin-manifest": "^2.0.26",
-    "gatsby-plugin-netlify": "^2.0",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-postcss": "^2.0.7",
-    "gatsby-plugin-react-helmet": "^3.0.11",
-    "graphql": "^14.2.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0"
+    "gatsby-plugin-netlify": "^2.3.3",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-postcss": "^2.3.2",
+    "gatsby-plugin-react-helmet": "^3.3.2",
+    "graphql": "^14.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
-  "main": "n/a",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -28,13 +27,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-react": "^7.12.4",
-    "gatsby-plugin-eslint": "^2.0.4",
-    "prettier": "^1.16.4",
-    "tailwindcss": "^1.0.0-beta.4"
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.20.0",
+    "gatsby-plugin-eslint": "^2.0.8",
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.4.6"
   }
 }

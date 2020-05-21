@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 
 const OuterCircle = ({ children, x, y, radius, polyPath }) => (
   <svg
-    className="intro"
+    className="intro max-h-screen"
     preserveAspectRatio="xMidYMax"
     viewBox="0 0 100 100"
     fill="transparent"

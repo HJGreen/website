@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Blob from './Blob';
 
 class Header extends Component {
@@ -33,7 +34,7 @@ class Header extends Component {
     const { progress } = this.state;
     return (
       <header
-        className="h-screen-min"
+        className="max-h-screen"
         style={{
           background:
             'linear-gradient(20deg, hsl(5, 67%, 58%), transparent), \
