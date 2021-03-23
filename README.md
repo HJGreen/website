@@ -7,5 +7,6 @@ Static website built with React and Gatsby. Hosted on Netlify.
 ## Development
 
 ```
-npm run develop
+yarn
+yarn develop
 ```

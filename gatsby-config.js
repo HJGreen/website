@@ -3,7 +3,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify',
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-manifest`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
