@@ -4,16 +4,16 @@
   "version": "1.0.0",
   "author": "Harry Green <harry@hgreen.co.uk>",
   "dependencies": {
-    "gatsby": "^2.22.4",
-    "gatsby-link": "^2.4.3",
-    "gatsby-plugin-manifest": "^2.0.26",
-    "gatsby-plugin-netlify": "^2.3.3",
+    "gatsby": "^2.32.11",
+    "gatsby-link": "^2.11.0",
+    "gatsby-plugin-manifest": "^2.12.1",
+    "gatsby-plugin-netlify": "^2.11.1",
     "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-postcss": "^2.3.2",
-    "gatsby-plugin-react-helmet": "^3.3.2",
-    "graphql": "^14.6.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "gatsby-plugin-postcss": "^2.3.13",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "graphql": "^14.7.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1"
   },
   "keywords": [
@@ -30,10 +30,10 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-loader": "^2.2.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.23.0",
     "gatsby-plugin-eslint": "^2.0.8",
     "prettier": "^1.19.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.9.6"
   }
 }
